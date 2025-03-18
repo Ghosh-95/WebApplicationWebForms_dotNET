@@ -118,6 +118,8 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CrossPagePostingOne.aspx" />
+    <Content Include="CrossPagePostingTwo.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="FormQueryString.aspx" />
@@ -202,6 +204,20 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrossPagePostingOne.aspx.cs">
+      <DependentUpon>CrossPagePostingOne.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrossPagePostingOne.aspx.designer.cs">
+      <DependentUpon>CrossPagePostingOne.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrossPagePostingTwo.aspx.cs">
+      <DependentUpon>CrossPagePostingTwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrossPagePostingTwo.aspx.designer.cs">
+      <DependentUpon>CrossPagePostingTwo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
