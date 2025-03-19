@@ -35,6 +35,7 @@ namespace WebApplicationWebFormsTutorial
             if (dataReader.HasRows)
             {
                 Session["user"] = usernameTextBox.Text;
+                Response.Redirect("Dashboard.aspx");
                 ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>alert('Log in successful');</script>");
             }
             else
@@ -42,6 +43,13 @@ namespace WebApplicationWebFormsTutorial
                 ClientScript.RegisterStartupScript(this.GetType(), "script", "<script>alert('Log in failed');</script>");
             }
             connection.Close();
+        }
+
+        protected void Show_Password(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            
+            passwordTextBox.Attributes["type"] = checkBox.Checked ? "text" : "password";
         }
     }
 }
