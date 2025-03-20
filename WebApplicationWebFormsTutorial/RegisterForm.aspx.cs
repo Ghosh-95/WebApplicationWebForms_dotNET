@@ -25,7 +25,35 @@ namespace WebApplicationWebFormsTutorial
             // Handle the registration logic here
 
             SqlConnection connection = new SqlConnection(connectionString);
-            //string query = "insert into signUp_data values(@firstname, @lastname,)";
+            string query = "insert into signUp_data values(@firstname, @lastname, @email, @gender, @address, @username, @password)";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@firstname", txtFirstName.Text);
+            command.Parameters.AddWithValue("@lastname", txtLastName.Text);
+            command.Parameters.AddWithValue("@email", txtEmail.Text);
+            command.Parameters.AddWithValue("@gender", MaleRadioBtn.Checked ? "Male" : FemaleRadioBtn0.Checked ? "Female" : "Other");
+            command.Parameters.AddWithValue("@address", address.Text);
+            command.Parameters.AddWithValue("@username", txtUsername.Text);
+            command.Parameters.AddWithValue("@password", txtPassword.Text);
+
+            connection.Open();
+            int affectedRows = command.ExecuteNonQuery();
+
+
+            if (affectedRows > 0)
+            {
+                string script = $"<script>alert('Registration successful, username is {txtUsername.Text} and password is {txtPassword.Text}');</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", script, true);
+                Response.Redirect("LogInForm.aspx");
+            }
+            else
+            {
+                string script = "<script>alert('Registration failed');</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "FailureMessage", script, true);
+            }
+
+
+            connection.Close();
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)

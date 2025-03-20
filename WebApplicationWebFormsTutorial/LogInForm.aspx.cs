@@ -24,7 +24,7 @@ namespace WebApplicationWebFormsTutorial
         protected void logInButton_Click(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(cs);
-            string query = "select * from user_info where username = @username and user_password = @password";
+            string query = "select * from signUp_Data where username = @username and password = @password";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@username", usernameTextBox.Text);
             command.Parameters.AddWithValue("@password", passwordTextBox.Text);

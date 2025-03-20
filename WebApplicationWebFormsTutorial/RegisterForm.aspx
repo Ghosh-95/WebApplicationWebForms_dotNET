@@ -66,9 +66,12 @@
             Confirm Password&nbsp;&nbsp;
             <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
         &nbsp;
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtConfirmPassword" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtConfirmPassword" ErrorMessage="This field is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" Display="Dynamic" ErrorMessage="Password didn't match" ForeColor="Red"></asp:CompareValidator>
         </div>
         <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="BtnRegister_Click" />
+
+        <p>Go back to the <a href="LogInForm.aspx">Log In</a> page</p>
     </form>
 </body>
 </html>
